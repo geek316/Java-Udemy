@@ -26,7 +26,7 @@ public class LearningStringRegularExpression {
         System.out.println(str7.matches("\\W"));
 
         String str8 = " ";
-        System.out.println(str8.matches("\\s"));
+        System.out.println("String Match: " +str8.matches("\\s"));
 
         String str9 = " ";
         System.out.println(str9.matches("\\S"));
