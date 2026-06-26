@@ -32,6 +32,44 @@ public class LearningStringMethods {
 
         System.out.println("Chat at 6: " + str.charAt(6));
 
+        str = "COBOL";
+        System.out.println("Index of O: " + str.indexOf('O'));
+        System.out.println("Index of O from 2: " + str.indexOf('O',2));
+        System.out.println("Index of CO: " + str.indexOf("CO"));
+        System.out.println("Index of O: " + str.lastIndexOf('O'));
+        System.out.println("Index of O from 2: " + str.lastIndexOf('O',2));
+
+
+        String str1 = "Java";
+        String str2 = "Java";
+        String str3 = new String("Java");
+
+        System.out.println("Are the two reference equal: ");
+        System.out.println(str1 == str2);
+        System.out.println("Are the two reference equal: ");
+        System.out.println(str1 == str3);
+        System.out.println("Are the two values equal: ");
+        System.out.println(str1.equals(str3));
+
+        str1 = "Java";
+        str2 = "JAVA";
+
+        System.out.println("Are the two values equal: ");
+        System.out.println(str1.equals(str2));
+        System.out.println("Are the two values equal: ");
+        System.out.println(str1.equalsIgnoreCase(str2));
+
+        str1 = "Java";
+        str2 = "Python";
+        System.out.println("Comparing two string: " + str1.compareTo(str2));
+        System.out.println("Comparing two string: " + str2.compareTo(str1));
+
+
+        str = String.valueOf(400);
+        System.out.println("Example of valueOf: " + str);
+        System.out.println(str.getClass().getSimpleName());
+
+
 
 
 
