@@ -1,7 +1,7 @@
 package learningmultithreading;
 
 public class StudentChallengeTeacherStudentProblems {
-    static void main() {
+    static void main(String[] args) {
         WhiteBoard whiteBoard = new WhiteBoard();
         Teacher teacher = new Teacher(whiteBoard);
         Student summi = new Student("Summi", whiteBoard);
@@ -9,12 +9,21 @@ public class StudentChallengeTeacherStudentProblems {
         Student mukesh = new Student("Mukesh", whiteBoard);
         Student anshal = new Student("Anshal", whiteBoard);
 
-        teacher.start();
         summi.start();
         hemant.start();
         mukesh.start();
         anshal.start();
+        teacher.start();
 
+        try {
+            teacher.join();
+            summi.join();
+            hemant.join();
+            mukesh.join();
+            anshal.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
@@ -60,9 +69,10 @@ class WhiteBoard {
     String text;
     int numberOfStudents = 0;
     int count = 0;
+    int studentsWaiting = 0;
 
     synchronized public void write(String text) {
-        while (count != 0) {
+        while (count != 0 || studentsWaiting < numberOfStudents) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -72,11 +82,14 @@ class WhiteBoard {
         this.text = text;
         System.out.println(Teacher.name + " is writing: " + text);
         count = numberOfStudents;
+        studentsWaiting = 0;
         notifyAll();
     }
 
     synchronized public String read() {
         String localText;
+        studentsWaiting++;
+        notifyAll();
         while (count == 0) {
             try {
                 wait();
@@ -86,11 +99,13 @@ class WhiteBoard {
         }
         localText = text;
         count--;
-        notify();
+        if (count == 0) {
+            notifyAll();
+        }
         return localText;
     }
 
-    public void attendance() {
+    synchronized public void attendance() {
         numberOfStudents++;
     }
 
