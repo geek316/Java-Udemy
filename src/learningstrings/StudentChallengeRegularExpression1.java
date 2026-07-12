@@ -15,7 +15,7 @@ public class StudentChallengeRegularExpression1 {
             System.out.println("Number is not Binary");
         }
 
-        // Find is a number is hexadecimal or not.
+        // Find if a number is hexadecimal or not.
 
         String hexNumber = "1AZA";
         if(hexNumber.matches("[0-9A-F]+")){
@@ -25,7 +25,7 @@ public class StudentChallengeRegularExpression1 {
         }
 
 
-        // Find is the data is Date format (dd/mm/yyyy).
+        // Find if the data is Date format (dd/mm/yyyy).
 
         String date = "11/03/1990";
 
