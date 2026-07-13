@@ -16,6 +16,17 @@ public class Level1EasyProblem1 {
         //  First name: Alice
         //  Last name: Emma
 
+        ArrayList<String> strings = new ArrayList<>();
+
+        strings.add("Summi");
+        strings.add("Hemant");
+        strings.add("Mukesh");
+        strings.add("Anshal");
+        strings.add("Neel");
+
+        System.out.println("All Names: " + strings);
+        System.out.println("First Name: " + strings.getFirst());
+        System.out.println("Last Name: " + strings.getLast());
 
     }
 }

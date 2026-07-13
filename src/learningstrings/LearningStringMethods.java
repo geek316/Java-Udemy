@@ -69,6 +69,12 @@ public class LearningStringMethods {
         System.out.println("Example of valueOf: " + str);
         System.out.println(str.getClass().getSimpleName());
 
+        System.out.println("Index of '.' : " + str.indexOf('.'));
+        System.out.println("Index of '.' from 7 : " + str.indexOf('.',7));
+        System.out.println("Last index of '.' : " + str.lastIndexOf('.'));
+        System.out.println("Last index of '.' from 7: " + str.lastIndexOf('.', 7));
+
+        System.out.println("To Char Array: " + str.toCharArray());
 
 
 
